@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import Onboard from "bnc-onboard";
 import Web3 from "web3";
 
@@ -16,30 +17,31 @@ const onboard = Onboard({
   darkMode: true,
 });
 
-async function login() {
-  try {
-    await onboard.walletSelect();
-    await onboard.walletCheck();
-    const signedMessage = await signMessage();
-    console.log(signedMessage);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function signMessage() {
-  const from = (await web3.eth.getAccounts())[0];
-  const expiration = Math.round(Date.now() / 1000 + 300).toString();
-  const message = `${from}-${expiration}`;
-  const signature = await web3.eth.personal.sign(message, from);
-  console.log({ message, signature, from });
-  return `${signature}-${message}`;
-}
-
 function App() {
+  const [signedMessage, setSignedMessage] = useState(null);
+
+  const login = async () => {
+    try {
+      await onboard.walletSelect();
+      await onboard.walletCheck();
+      setSignedMessage(await signMessage());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const signMessage = async () => {
+    const from = (await web3.eth.getAccounts())[0];
+    const expiration = Math.round(Date.now() / 1000 + 300).toString();
+    const message = `${from}-${expiration}`;
+    const signature = await web3.eth.personal.sign(message, from);
+    return `${signature}-${message}`;
+  };
+
   return (
     <div className="App">
       <header className="App-header">
+        <code className="App-signature">{signedMessage}</code>
         <span className="App-button" onClick={login}>
           Connect Wallet
         </span>

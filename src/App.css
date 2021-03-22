@@ -29,10 +29,15 @@
   padding: 20px 40px 20px 40px;
   border-radius: 90px;
   transition: background-color 0.3s;
-
 }
 
 .App-button:hover {
   cursor: pointer;
   background-color: rgb(15, 33, 41);
+}
+
+.App-signature {
+  width: 50%;
+  word-wrap: break-word;
+  margin: 20px;
 }

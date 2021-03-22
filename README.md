@@ -1,6 +1,41 @@
-# Getting Started with Create React App
+# Onboard Wallet Auth
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Metamask Auth
+
+Passwordless Login to Game Engine
+
+https://underscoredlabs.github.io/metamask-auth
+
+Login Code is broken into 3 parts:
+
+```
+1. Signed message
+2. Signer address
+3. Expiration timestamp
+
+Example: 0x1843015ad6a2932ab9c12d71557b193bc916cef37fc09002a2178f3c2f5e9b1b0d2cc2ac580fa0c5895dbd8ac357e22d3c4917a01365dbae14805f9fb6b2b9be1b-0x35706484aB20Cbf22F5c7a375D5764DA8166aE1c-161402460
+
+Signing "0x3570...-161402460"
+will create signed message
+"0x1843015ad..."
+```
+
+To Verify
+
+```javascript
+window.web3 = new Web3(window.web3.currentProvider);
+const msg = "0x35706484aB20Cbf22F5c7a375D5764DA8166aE1c-1614025671";
+const sig =
+  "0x37c0b3c25a082f6876ec4952b67e897b2936bb454ba32543c3af6336917c5fd01b7bf70e2dbad52d4dc28006e88a0151e007d727c44a629a8ac8792aef53d9551c";
+  
+web3.eth.personal
+  .ecRecover(msg, sig)
+  .then((owner) =>
+    console.log(
+      owner == "0x35706484aB20Cbf22F5c7a375D5764DA8166aE1c".toLowerCase()
+    )
+  );
+```
 
 ## Available Scripts
 
@@ -14,57 +49,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

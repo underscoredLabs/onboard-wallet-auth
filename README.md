@@ -2,8 +2,6 @@
 
 Passwordless Login to Game Engine
 
-https://underscoredlabs.github.io/metamask-auth
-
 Login Code is broken into 3 parts:
 
 ```

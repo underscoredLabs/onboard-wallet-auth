@@ -15,6 +15,18 @@ const onboard = Onboard({
     },
   },
   darkMode: true,
+  walletSelect: {
+    wallets: [
+      { walletName: "metamask", preferred: true, label: "MetaMask - Browser" },
+      {
+        walletName: "walletConnect",
+        infuraKey: "6429a308b4d646399b1ea170bb406c61",
+        preferred: true,
+        label: "WalletConnect - Mobile",
+      },
+      { walletName: "torus", preferred: true, label: "Torus - Social" },
+    ],
+  },
 });
 
 function App() {
@@ -35,7 +47,7 @@ function App() {
     const expiration = Math.round(Date.now() / 1000 + 300).toString();
     const message = `${from}-${expiration}`;
     const signature = await web3.eth.personal.sign(message, from);
-    return `${signature}-${message}`;
+    return `Code ${signature}-${message}`;
   };
 
   return (
@@ -43,7 +55,7 @@ function App() {
       <header className="App-header">
         <code className="App-signature">{signedMessage}</code>
         <span className="App-button" onClick={login}>
-          Connect Wallet
+          Select a Wallet
         </span>
       </header>
     </div>

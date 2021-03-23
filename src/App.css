@@ -2,15 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -20,15 +12,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-button {
-  border: 1px solid grey;
-  padding: 20px 40px 20px 40px;
-  border-radius: 90px;
-  transition: background-color 0.3s;
+  font-size: 1.33em;
+  font-weight: bold;
+  border: 1px solid rgb(15, 33, 41);
+  padding: 10px 20px 10px 20px;
+  border-radius: 40px;
+  transition: box-shadow 150ms ease-in-out, background 200ms ease-in-out;
 }
 
 .App-button:hover {
@@ -37,7 +30,7 @@
 }
 
 .App-signature {
-  width: 50%;
+  width: 265px;
   word-wrap: break-word;
   margin: 20px;
 }

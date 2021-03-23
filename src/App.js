@@ -14,7 +14,6 @@ const onboard = Onboard({
       console.log(`${wallet.name} is now connected`);
     },
   },
-  darkMode: true,
   walletSelect: {
     wallets: [
       { walletName: "metamask", preferred: true, label: "MetaMask - Browser" },

@@ -6,19 +6,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #4a4a4a;
 }
 
 .App-button {
   font-size: 1.33em;
   font-weight: bold;
-  border: 1px solid rgb(15, 33, 41);
+  border: 1px solid #afafaf;
   padding: 10px 20px 10px 20px;
   border-radius: 40px;
   transition: box-shadow 150ms ease-in-out, background 200ms ease-in-out;
@@ -26,7 +25,6 @@
 
 .App-button:hover {
   cursor: pointer;
-  background-color: rgb(15, 33, 41);
 }
 
 .App-signature {

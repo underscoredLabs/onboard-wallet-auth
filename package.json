@@ -1,6 +1,6 @@
 {
-  "homepage": "https://underscoredlabs.github.io/onboard-wallet-auth",
-  "name": "onboard-wallet-auth",
+  "homepage": "https://underscoredlabs.github.io/wallet-auth/",
+  "name": "wallet-auth",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
